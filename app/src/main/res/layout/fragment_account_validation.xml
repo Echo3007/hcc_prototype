@@ -1,14 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AccountValidationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/validationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Account Validation"
+                android:textSize="50sp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/fullnameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/validationTitle"
+                app:layout_constraintBottom_toTopOf="@id/fullnameLayout"
+                app:layout_constraintStart_toStartOf="@id/fullnameLayout"
+                android:text="Full Name"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+               />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fullnameLayout"
+                style="@style/floatingMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/validationTitle"
+                app:layout_constraintEnd_toEndOf="@id/validationTitle"
+                app:layout_constraintTop_toBottomOf="@id/fullnameTitle"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullnameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Miguel de Oliviera"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/editName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/fullnameLayout"
+                app:layout_constraintBottom_toBottomOf="@id/fullnameLayout"
+                app:layout_constraintTop_toTopOf="@id/fullnameLayout"
+                android:layout_marginLeft="30dp"
+                android:onClick="edit"
+                android:background="@null"
+                android:src="@android:drawable/ic_menu_edit"
+                />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailLayout"
+                style="@style/floatingMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/validationTitle"
+                app:layout_constraintEnd_toEndOf="@id/validationTitle"
+                app:layout_constraintTop_toBottomOf="@id/fullnameLayout"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="miguel@gmail.com"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobileNumLayout"
+                style="@style/floatingMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/validationTitle"
+                app:layout_constraintEnd_toEndOf="@id/validationTitle"
+                app:layout_constraintTop_toBottomOf="@id/emailLayout"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileNumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="+44 849305389"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pswLayout"
+                style="@style/floatingMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="60"
+                app:layout_constraintStart_toStartOf="@id/validationTitle"
+                app:layout_constraintEnd_toEndOf="@id/validationTitle"
+                app:layout_constraintTop_toBottomOf="@id/mobileNumLayout"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pswText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Enter password"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/re_pswLayout"
+                style="@style/floatingMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="60"
+                app:layout_constraintStart_toStartOf="@id/validationTitle"
+                app:layout_constraintEnd_toEndOf="@id/validationTitle"
+                app:layout_constraintTop_toBottomOf="@id/pswLayout"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/re_pswText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Confirm password"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/nextBtn"
+                app:layout_constraintTop_toBottomOf="@id/re_pswLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/re_pswLayout"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="40dp"
+                android:drawableRight="@drawable/baseline_arrow_forward_24"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goNextPage"
+                android:text="Next"
+                 />
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                tools:layout_editor_absoluteX="612dp"
+                tools:layout_editor_absoluteY="338dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.Hcc_prototype" parent="Base.Theme.Hcc_prototype" />
+
+    <style name="floatingMessage" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+    </style>
+
 </resources>
